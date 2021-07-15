@@ -1,0 +1,28 @@
+# webtek
+# https://stackoverflow.com/questions/50080459/failed-installing-pycrypto-with-pip
+# pycrypto==2.6.1
+pycryptodome
+# Crypto
+xmltodict==0.11.0
+PyPDF2==1.26.0
+gtin-validator==1.0.3
+
+# Odoo
+raven==6.10.0
+pathlib==1.0.1
+mysqlclient
+PyMySQL
+
+# OCA
+# cacheutils==0.1.1
+cachetools==2.1.0
+magento==3.0
+viivakoodi==0.8.0
+slackclient==1.0.7
+sqlalchemy==1.3.7
+numpy==1.16.5
+simplejson==3.10.0
+openupgradelib
+lxml==3.7.3
+icalendar
+sendgrid

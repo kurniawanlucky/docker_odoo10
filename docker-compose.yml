@@ -1,0 +1,31 @@
+# Composition for development
+version: '2'
+
+volumes:
+  odoo-data:
+  odoo-testlogs:
+  psql:
+
+services:
+  odoo:
+    container_name: odoo
+    build: ./odoo/
+    ports: ["8069:8069", "8072:8072"]
+    depends_on:
+      - db
+    volumes:
+      - odoo-data:/var/lib/odoo/data
+      - ./odoo/custom:/mnt/extra-addons:delegated
+      - odoo-testlogs:/var/lib/odoo/logs
+
+  db:
+    image: postgres:9.6
+#    build: ./postgres/
+    restart: unless-stopped
+    ports: ["5432:5432"]
+    volumes:
+      - psql:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
