@@ -15,6 +15,7 @@ services:
       - db
     volumes:
       - odoo-data:/var/lib/odoo/data
+      - ./odoo/config/odoo.conf:/etc/odoo/odoo.conf:delegated
       - ./odoo/custom:/mnt/extra-addons:delegated
       - odoo-testlogs:/var/lib/odoo/logs
 

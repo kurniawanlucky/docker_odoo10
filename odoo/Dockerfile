@@ -114,6 +114,7 @@ RUN /usr/local/bin/python -m pip install --upgrade pip
 #RUN mkdir -p /src/odoo
 #COPY odoo_base to src
 COPY ./src_odoo_base /src
+#COPY ./src_odoo_base/odoo /odoo
 #COPY ./src1 /src
 #Install Odoo
 RUN pip install --no-cache-dir --prefix=/usr/local /src/odoo \
@@ -205,8 +206,8 @@ ENV ODOO_HOST_BASE ${ODOO_HOST_BASE:-/src1/}
 #WORKDIR /src/odoo
 
 #TODO need to change with directory not zip file
-ENV ODOO_BASEPATH ${ODOO_BASEPATH:-/opt/odoo}
-#ENV ODOO_BASEPATH ${ODOO_BASEPATH:-/src/odoo}
+#ENV ODOO_BASEPATH ${ODOO_BASEPATH:-/opt/odoo}
+ENV ODOO_BASEPATH ${ODOO_BASEPATH:-/src}
 
 #COPY ${ODOO_HOST_BASE} ${ODOO_BASEPATH}
 
