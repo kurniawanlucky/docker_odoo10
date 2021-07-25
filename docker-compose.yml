@@ -30,3 +30,18 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
+
+  nginx:
+    container_name: nginx
+    build: ./nginx/
+    #    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+#      - ./certbot/conf:/etc/nginx/ssl
+#      - ./certbot/data:/var/www/html
+    depends_on:
+      - odoo
